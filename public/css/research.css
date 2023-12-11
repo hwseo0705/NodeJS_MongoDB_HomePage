@@ -1,0 +1,63 @@
+@import url("footer.css");
+@import url("header.css");
+@import url("common.css");
+
+.wrap .right .btn {
+    margin: 20px 0px 20px 10px;
+    padding: 5px;
+    font-size: 17px;
+}
+
+.wrap .right .intro {
+    background: #eee;
+}
+
+.wrap .right .intro p {
+    margin: auto;
+    line-height: 1.5;
+    padding: 15px;
+}
+
+.wrap .right .intro p b {
+    font-weight: bold;
+}
+
+.wrap .right .research ul li {
+    padding-bottom: 30px;
+    padding-top: 30px;
+    display: flex;
+    border-bottom: 1px solid #ddd;
+}
+
+.wrap .right .research ul li .left {
+    width: 35%;
+    margin-right: 20px;
+    border: 1px solid #ccc;
+}
+
+.wrap .right .research ul li .left img {
+    width: 100%;
+}
+
+.wrap .right .research ul li .right {
+    line-height: 2;
+}
+
+.wrap .right .research ul li .right .title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.wrap .right .research ul li .right .description {
+    margin-left: 30px;
+    margin-bottom: 15px;
+}
+
+.wrap .right .research ul li .right span {
+    margin-left: 30px;
+    padding: 7px 60px 7px 60px;
+    background-image: linear-gradient(180deg, rgb(1, 23, 132), rgb(28, 2, 106));
+    border:1px solid #ddd;
+    color: #fff;
+}

@@ -28,6 +28,7 @@ const homeRoutes = require('./routes/homeRoutes');
 const newsRoutes = require('./routes/newsRoutes');
 const piRoutes = require('./routes/piRoutes');
 const memberRoutes = require('./routes/memberRoutes');
+const researchRoutes = require('./routes/researchRoutes');
 
 // connect to MongoDB
 const dbURI = 'mongodb+srv://seo58:0924push@cluster0.sdirjwn.mongodb.net/NodeJS_MongoDB_HomePage?retryWrites=true&w=majority';
@@ -45,3 +46,5 @@ app.use(homeRoutes);
 app.use(newsRoutes);
 app.use(piRoutes);
 app.use(memberRoutes);
+app.use(researchRoutes);
+

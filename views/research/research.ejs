@@ -1,0 +1,71 @@
+<html lang="ko">
+
+<head>
+     
+    <%- include('../partials/head.ejs')%>
+
+    <title>AVIP Lab - Research</title>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="/css/research.css">
+
+</head>
+
+<body>
+
+    <%- include('../partials/header.ejs')%>
+
+    <div class="wrap">
+
+        <div class="left">
+            <div class="box">
+                <h3>Research</h3>
+            </div>
+            <ul>
+                <li><a href="/research">Research</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <% if (isAdmin == 'admin') { %>
+                <button type="button" class="btn"><a href="/research/write">추가</a></button>
+            <% } %>
+            <section class="intro">
+                    <p> 
+                        <b>AVIP Laboratory</b>에서는 <b>Theoretical vibration modeling, Advanced neural network design, Wave
+                            signal processing</b> 을 기반으로 <b>[파동기반의 동적 물성치 평가], [음향/진동 메타구조 개발], [멀티모달 정보기반의 결함 진단], [손실정보 딥러닝
+                            복원기술]</b>를 위한 연구를 수행하고
+                        있습니다.
+                    </p>
+            </section>
+
+            <section class="research">
+                <ul>
+                    <% if (result.length > 0) { %>
+                        <% result.forEach(n => { %>
+                            <li>
+                                <div class="left">
+                                    <img src="/img/<%= n.intro_img %>" alt="리서치 이미지">
+                                </div>
+                                <div class="right">
+                                    <h3 class="title">> <%= n.title %></h3>
+                                    <p class="description"><%= n.description %></p>
+                                    <span><a href="/research/detail?id=<%= n._id %>">More +</a></span>
+                                </div>
+                            </li>
+                        <% }) %>
+                        <% } else { %>
+                            <p>There are No Research to Display...</p>
+                        <% } %>
+                </ul>
+            </section>
+
+
+        </div>
+
+    </div>
+
+    <%- include('../partials/footer.ejs')%>
+
+</body>
+
+</html>

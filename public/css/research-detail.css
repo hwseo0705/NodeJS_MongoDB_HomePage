@@ -1,0 +1,30 @@
+@import url("footer.css");
+@import url("header.css");
+@import url("common.css");
+
+.wrap .right .top {
+    margin: 30px 0 30px 0;
+    padding: 15px 0 15px 30px;
+    background: #eee;
+}
+
+.wrap .right .top .title {
+    font-size: 35px;
+}
+
+.wrap .right .bottom img {
+    width: 100%;
+}
+
+
+.wrap .right .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap .right .btn {
+    margin-top: 20px;
+    padding: 10px;
+    margin-left: 10px;
+}
