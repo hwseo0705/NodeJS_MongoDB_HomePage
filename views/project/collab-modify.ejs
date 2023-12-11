@@ -3,7 +3,7 @@
 <head>
     <%- include('../partials/head.ejs')%>
 
-    <title>AVIP Lab - Members</title>
+    <title>AVIP Lab - Projects</title>
 
     <style>
         @import url("/css/footer.css");
@@ -60,26 +60,15 @@
     <%- include('../partials/header.ejs')%>
     <div class="wrap">
         <div class="box">
-            <h3>Add Members</h3>
+            <h3>Modify Collaborators</h3>
         </div>
 
         <div class="content">
-            <form action="/member/write?status=<%= request %>" method="POST">
+            <form action="/project/collab/modify?id=<%= result._id %>&_method=PUT" method="POST">
+                <label for="institution">Institution</label>
+                <input type="text" id="institution" name="institution" value="<%= result.institution %>" placeholder="institution" required>       
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="name" required>
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email" placeholder="email" required>
-                <% if (request == 'grad' || request == 'under') { %>
-                    <label for="status" hidden>Status</label>
-                    <input type="text" id="status" name="status" value="<%= request %>" hidden>
-                    <label for="date">Date</label>
-                    <input type="text" id="date" name="date" pattern="^\d{4}\.\d{2}" placeholder="YYYY.MM" required>
-                <% } else if (request == 'alumni') { %>
-                    <label for="info">소속</label>
-                    <input type="text" id="info" name="info" placeholder="info" required>
-                <% } %>
-                <label for="img">Image</label>
-                <input type="file" id="img" name="img" placeholder="img" required>
+                <input type="text" id="name" name="name" value="<%= result.name %>" placeholder="name" required>  
                 <button>Submit</button>
             </form>
         </div>

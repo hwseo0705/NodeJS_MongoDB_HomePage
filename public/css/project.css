@@ -1,0 +1,122 @@
+@import url("footer.css");
+@import url("header.css");
+@import url("common.css");
+
+.wrap .right .top h2 {
+    padding: 40px 0 25px 0;
+    font-size: 25px;
+    border-bottom: 1px solid #777;
+}
+
+.wrap .right .top {
+    position: relative;
+}
+
+.wrap .right .top .button {
+    position: absolute;
+    top: 40px;
+    right: 5px;
+}
+
+.wrap .right #ongoing ul {
+    line-height: 1.4;
+    padding-top: 25px;
+}
+
+.wrap .right #ongoing ul li {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.wrap .right #ongoing ul .outer {
+    margin-bottom: 40px;
+}
+
+.wrap .right #ongoing ul li .left {
+    width: 30%;
+    margin-right: 20px;
+}
+
+.wrap .right #ongoing ul li .left img {
+    width: 100%;
+}
+
+.wrap .right #ongoing ul li .left .button {
+    margin-top: 10px;
+}
+
+.wrap .right #ongoing ul li .right {
+    width: 80%;
+}
+
+.wrap .right #ongoing ul li .right h3 {
+    font-weight: bold;
+}
+
+.wrap .right #ongoing ul li .right ul {
+    padding-top: 10px;
+}
+
+.wrap .right #research ul{
+    line-height: 2;
+    list-style-type: square;
+}
+
+.wrap .right #research ul li{
+    margin-bottom: 10px;
+}
+
+.wrap .right #research ul {
+    padding: 25px 0 25px 0;
+    font-size: 18px;
+}
+
+.wrap .right #research ul li {
+    display: flex;
+}
+
+.wrap .right #research ul li h3 {
+    font-weight: bold;
+}
+
+.wrap .right #research ul li h3 .button {
+    margin-left: 10px;
+}
+
+.wrap .right #research ul li .left {
+    width: 16%;
+    margin-right: 20px;
+}
+
+.wrap .right #research ul li .right {
+    width: 80%;
+}
+
+.wrap .right #collab .box ul {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    padding-top: 15px;
+}
+
+.wrap .right #collab .box ul li {
+    text-align: center;
+    line-height: 1.5;
+    width: 18%;
+    margin-right: 2%;
+    margin-bottom: 20px;
+}
+
+.wrap .right #collab .box ul li .img-box{
+    height: 190px;
+    overflow: hidden;
+    position: relative; 
+}
+
+.wrap .right #collab .box ul li .img-box img {
+    width: 100%;
+}
+
+.wrap .right #collab .box ul li .bottom .button {
+    margin-top: 15px;
+}
