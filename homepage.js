@@ -24,8 +24,9 @@ const user = {
     password : '12345'
 };
 
-const newsRoutes = require('./routes/newsRoutes');
 const homeRoutes = require('./routes/homeRoutes');
+const newsRoutes = require('./routes/newsRoutes');
+const piRoutes = require('./routes/piRoutes');
 
 // connect to MongoDB
 const dbURI = 'mongodb+srv://seo58:0924push@cluster0.sdirjwn.mongodb.net/NodeJS_MongoDB_HomePage?retryWrites=true&w=majority';
@@ -41,3 +42,4 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(homeRoutes);
 app.use(newsRoutes);
+app.use(piRoutes);

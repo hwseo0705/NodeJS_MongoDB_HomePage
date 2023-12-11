@@ -1,0 +1,118 @@
+<html lang="ko">
+
+<head>
+
+    <%- include('../partials/head.ejs')%>
+
+    <title>AVIP Lab - PI</title>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="/css/pi.css">
+
+</head>
+
+<body>
+
+    <%- include('../partials/header.ejs')%>
+
+    <div class="wrap">
+
+        <div class="left">
+            <div class="box">
+                <h3>Principal<br>Investigator</h3>
+            </div>
+            <ul>
+                <li><a href="/pi">Principal Investigator</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <section class="info">
+                <div class="inner">
+                    <div class="left">
+                        <img src="/img/pi.jpg" alt="pi_profile_img">
+                    </div>
+                    <div class="right">
+                        <h2>Yunsang Kwak (곽윤상)</h2>
+                        <p><strong>Research Interests</strong> - Wave transfer, Computational mechanics,
+                            Physics-based deep learning, Biomechanics Assistant Professor</p>
+                        <p>Department of Mechanical System Engineering</p>
+                        <p>Kumoh National Institute of Technology (KIT)</p>
+                        <p><strong>T</strong> +82 54-478-7341</p>
+                        <p><strong>M</strong> +82 10-2573-6568</p>
+                        <p><strong>E</strong> ykwak@kumoh.ac.kr</p>
+                    </div>
+                </div>
+            </section>
+    
+            <section class="edu">
+                <div class="top">
+                    <h2>Education and Experience</h2>
+                    <% if (isAdmin == 'admin') { %>
+                        <button type="button" class="button"><a href="/pi/eduExp/write">추가</a></button>
+                    <% } %>
+                </div>
+                <ul>
+                    <% if (eduExp.length > 0) { %>
+                        <% eduExp.forEach(n => { %>
+                            <li>
+                                <div class="left">
+                                    <h3 class="date"><%= n.date %></h3>
+                                </div>
+                                <div class="right">
+                                    <h3 class="title"><%= n.title %></h3>
+                                    <p class="description"><%= n.info %></p>
+                                </div>
+                                <% if (isAdmin == 'admin') { %>
+                                    <button type="button" class="button" style="margin-right: 5px;"><a href="/pi/eduExp/modify?id=<%= n._id %>">수정</a></button>
+                                    <button type="button" id="<%= n._id %>" onclick="confirmDelete(id, 'eduExp')" class="button"><a href="#">삭제</a></button>
+                                <% } %>
+                            </li>
+                        <% }) %>
+                    <% } else { %>
+                        <p>There are No Education and Experience to Display...</p>
+                    <% } %>
+                </ul>
+            </section>
+    
+            <section class="awards">
+                <div class="top">
+                    <h2>Awards</h2>
+                    <% if (isAdmin == 'admin') { %>
+                        <button type="button" class="button"><a href="/pi/awards/write">추가</a></button>
+                    <% } %>
+                </div>
+                <ul>
+                    <% if (awards.length > 0) { %>
+                        <% awards.forEach(n => { %>
+                            <li>
+                                <% if (isAdmin == 'admin') { %>
+                                    <button type="button" style="margin-right: 5px;"><a href="/pi/awards/modify?id=<%= n._id %>">수정</a></button>
+                                    <button type="button" id="<%= n._id %>" onclick="confirmDelete(id, 'awards')" class="button"><a href="#">삭제</a></button>
+                                <% } %>
+                                <%= n.awards %>
+                            </li>
+                        <% }) %>
+                    <% } else { %>
+                        <p>There are No Awards to Display...</p>
+                    <% } %>
+                </ul>
+            </section>
+    
+    
+        </div>
+    
+    </div>
+    
+    <%- include('../partials/footer.ejs')%>
+
+</body>
+<script>
+    function confirmDelete(id, type) {
+        if(confirm("Are you sure you want to delete?")) {
+            if (confirm) {
+                location.href="/pi/" + type + "/delete?id=" + id;
+            }
+        }
+    }
+</script>
+</html>

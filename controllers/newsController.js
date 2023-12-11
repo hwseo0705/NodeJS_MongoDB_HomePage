@@ -80,7 +80,6 @@ const news_modify_get = (req, res) => {
 };
 
 const news_modify_post = (req, res) => {
-    var conditions = { _id: req.query.id };
     News.findByIdAndUpdate(req.query.id, req.body)
         .then((result) => {
             res.redirect('/news/detail?id=' + req.query.id);

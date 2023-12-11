@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+@import url("footer.css");
+@import url("header.css");
+@import url("common.css");
+
+.wrap .right .info .inner{
+    display: flex;
+    padding: 25px 0 25px 0;
+}
+
+.wrap .right .info .inner .left {
+    width: 30%;
+    margin-right: 20px;
+}
+
+.wrap .right .info .inner .left img {
+    width: 100%;
+}
+
+.wrap .right .info .inner .right h2 {
+    padding-top: 25px;
+    font-size: 25px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.wrap .right .info .inner .right p {
+    line-height: 2;
+}
+
+.wrap .right .info .inner .right p strong {
+    font-weight:bold ;
+}
+
+.wrap .right h2 {
+    padding: 25px 0 25px 0;
+    font-size: 25px;
+    border-bottom: 1px solid #777;
+}
+
+.wrap .right .edu .top {
+    position: relative;
+}
+
+.wrap .right .edu .top .button {
+    position: absolute;
+    top: 25px;
+    right: 5px;
+}
+
+.wrap .right .edu ul {
+    padding: 25px 0 25px 0;
+}
+
+.wrap .right .edu ul li {
+    line-height: 2;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.wrap .right .edu ul li h3 {
+    font-weight: bold;
+}
+
+.wrap .right .edu ul li .left {
+    width: 22%;
+    margin-right: 1%
+}
+
+.wrap .right .edu ul li .right {
+    width: 77%;
+}
+
+section.awards ul {
+    padding: 25px 0 25px 20px;
+    list-style-type: square;
+    line-height: 2;
+}
+
+.wrap .right .awards .top {
+    position: relative;
+}
+
+.wrap .right .awards .top .button {
+    position: absolute;
+    top: 25px;
+    right: 5px;
+}
+
+.wrap .right .awards li .button {
+    margin-right: 10px;
+}
