@@ -2,9 +2,10 @@
 footer {
     background: #222;
     color: #999;
+    font-family: Arial, sans-serif;
 }
 
-footer .wrap {
+footer .footer-wrap {
     display: flex;
     width: 80%;
     margin: auto;
@@ -12,30 +13,30 @@ footer .wrap {
     line-height: 2;
 }
 
-footer .wrap .left {
+footer .footer-wrap .left {
     width: 30%;
     margin-right: 2%;
 }
 
-footer .wrap .left .img {
+footer .footer-wrap .left .img {
     width: 80%;
     margin: auto;
     margin-bottom: 25px;
 }
 
-footer .wrap .left .img img {
+footer .footer-wrap .left .img img {
     width: 100%;
 }
 
-footer .wrap .right {
+footer .footer-wrap .right {
     width: 50%;
 }
 
-footer .wrap .right p {
+footer .footer-wrap .right p {
     margin-bottom: 15px;
 }
 
-footer .wrap div {
+footer .footer-wrap div {
     width: fit-content;
     margin: auto;
 }

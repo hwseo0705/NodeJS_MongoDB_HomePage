@@ -5,6 +5,7 @@ header {
     position: fixed;
     z-index: 1000;
     background: #fff;
+    font-family: Arial, sans-serif;
 }
 
 header .logo a {

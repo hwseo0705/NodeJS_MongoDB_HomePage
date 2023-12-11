@@ -7,6 +7,10 @@ a {
     text-decoration: none;
 }
 
+.wrap {
+    font-family: Arial, sans-serif;
+}
+
 * {
     box-sizing: border-box
 }

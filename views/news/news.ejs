@@ -1,0 +1,68 @@
+<html lang="ko">
+
+<head>
+    <%- include('../partials/head.ejs')%>
+
+    <title>AVIP Lab - News</title>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="/css/news.css">
+</head>
+
+<body>
+
+    <%- include('../partials/header.ejs')%>
+    <div class="wrap">
+        <div class="left">
+            <div class="box">
+                <h3>News</h3>
+            </div>
+            <ul>
+                <li><a href="/news">News</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <% if (isAdmin == 'admin') { %>
+                <button type="button" class="btn"><a href="/news/write">추가</a></button>
+            <% } %>
+            <table>
+                <tr class="top">
+                    <th class="title">제목</th>
+                    <th class="date">등록일</th>
+                </tr>
+                <% if (news.length > 0) { %>
+                    <% news.forEach(n => { %>
+                        <tr>
+                            <td class="title"><a href="/news/detail?id=<%= n._id %>"><%= n.title %></a></td>
+                            <td class="date"><%= n.date %></td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                    <p>There are no news to display...</p>
+                <% } %>
+            </table>
+            <ul class="pagination">
+                <a href="#">&laquo;</a>
+                <% for (var i = 1; i <= pages; i++) { %>
+                    <li class="<%= i == index ? 'active click' : 'click' %>">
+                        <a href="/news?page=<%= i %>&index=<%= i %>"><%= i %></a>
+                    </li>
+                <% } %>
+                <a href="#">&raquo;</a>
+            </ul>
+        </div>
+    </div>
+    <%- include('../partials/footer.ejs')%>
+
+</body>
+
+<script>
+    $(document).ready(function(){
+        $(".click").click(function () {
+            $(".click").removeClass("active");
+            $(this).addClass("active");   
+        });
+    });
+</script>
+
+</html>

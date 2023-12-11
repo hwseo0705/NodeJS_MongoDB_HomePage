@@ -1,0 +1,63 @@
+@import url("footer.css");
+@import url("header.css");
+@import url("common.css");
+
+.wrap .right .btn {
+    margin: 25px 5px;
+    padding: 5px;
+    font-size: 17px;
+}
+
+.wrap .right .top {
+    background: #000;
+    color: #fff;
+    font-size: 17px;
+    padding: 17px;
+}
+
+.wrap .right .top .title, .date {
+    text-align: center;
+}
+
+.wrap .right table {
+    width: 100%;
+}
+
+.wrap .right table tr {
+    border-bottom: 1px solid #000;
+}
+
+.wrap .right table tr th {
+    padding: 13px;
+}
+
+.wrap .right table tr td {
+    padding: 10px 0px 10px 15px;
+}
+
+
+.wrap .right table tr .title {
+    width: 75%;
+    margin-right: 4%;
+    line-height: 1.4;
+}
+
+.wrap .right table tr .date {
+    width: 11%;
+}
+
+.wrap .right .pagination {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.wrap .right .pagination .active {
+    text-decoration: underline;
+}
+
+.wrap .right .pagination li:hover {
+    color: #bbb;
+}

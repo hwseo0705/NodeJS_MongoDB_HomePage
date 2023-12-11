@@ -1,0 +1,63 @@
+<html lang="ko">
+
+<head>
+    <%- include('../partials/head.ejs')%>
+
+    <title>AVIP Lab - News</title>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="/css/news-detail.css">
+</head>
+
+<body>
+
+    <%- include('../partials/header.ejs')%>
+    <div class="wrap">
+        <div class="left">
+            <div class="box">
+                <h3>News</h3>
+            </div>
+            <ul>
+                <li><a href="/news">News</a></li>
+            </ul>
+        </div>
+
+        <div class="right">
+            <div class="title">
+                <h3><%= news.title %></h3>
+                <span><%= news.date %></span>
+            </div>
+            <div class="content">
+                <% if (news.img) { %>
+                    <div class="image">
+                        <img src="/img/<%= news.img %>" alt="">
+                    </div>
+                <% } %>
+                <div class="write">
+                    <p class="body"><%= news.content %></p>
+                </div>
+            </div>
+            <div class="button">
+                <% if (isAdmin == 'admin') { %>
+                    <button type="button" class="btn"><a href="/news/modify?id=<%= news._id %>">수정</a></button>
+                    <button type="button" onclick="myFunction()" class="btn"><a href=#>삭제</a></button>
+                <% } %>
+                <button type="button" class="btn"><a href="/news">목록</a></button>
+            </div>
+        </div>
+    </div>
+    <%- include('../partials/footer.ejs')%>
+
+</body>
+
+<script>
+    function myFunction() {
+        if(confirm("Are you sure you want to delete?")) {
+            if (confirm) {
+                location.href="/news/delete?id=<%= news._id %>";
+            }
+        }
+    }
+</script>
+
+</html>
