@@ -14,8 +14,8 @@ app.use(session({
 }));
 
 app.use(function (req, res, next) {
-    // res.locals.isAdmin = req.session.username;
-    res.locals.isAdmin = 'admin';
+    res.locals.isAdmin = req.session.username;
+    // res.locals.isAdmin = 'admin';
     next();
 });
 
@@ -44,6 +44,10 @@ app.set('view engine', 'ejs');
 //middleware & static files
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
+
+app.get('/course', (req, res) => {
+    res.render('course');
+});
 
 app.use(homeRoutes);
 app.use(newsRoutes);

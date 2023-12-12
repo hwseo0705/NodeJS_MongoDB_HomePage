@@ -26,6 +26,7 @@ const photo_index = (req, res) => {
             console.log(err);
         });
 }
+
 const photo_write_post = (req, res) => {
     const photos = new Photos(req.body);
     photos.save()

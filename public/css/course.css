@@ -1,0 +1,18 @@
+@import url("footer.css");
+@import url("header.css");
+@import url("common.css");
+
+.wrap .right .semester {
+    margin: 40px 0 40px 0;
+}
+
+.wrap .right .semester h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.wrap .right .semester ul li {
+    list-style-type: square;
+    margin-left: 30px;
+    line-height: 2;
+}
