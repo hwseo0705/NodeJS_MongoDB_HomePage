@@ -30,6 +30,7 @@ const piRoutes = require('./routes/piRoutes');
 const memberRoutes = require('./routes/memberRoutes');
 const researchRoutes = require('./routes/researchRoutes');
 const projectRoutes = require('./routes/projectRoutes');
+const publicationRoutes = require('./routes/publicationRoutes');
 
 // connect to MongoDB
 const dbURI = 'mongodb+srv://seo58:0924push@cluster0.sdirjwn.mongodb.net/NodeJS_MongoDB_HomePage?retryWrites=true&w=majority';
@@ -49,4 +50,5 @@ app.use(piRoutes);
 app.use(memberRoutes);
 app.use(researchRoutes);
 app.use(projectRoutes);
+app.use(publicationRoutes);
 
