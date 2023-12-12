@@ -31,6 +31,7 @@ const memberRoutes = require('./routes/memberRoutes');
 const researchRoutes = require('./routes/researchRoutes');
 const projectRoutes = require('./routes/projectRoutes');
 const publicationRoutes = require('./routes/publicationRoutes');
+const photoRoutes = require('./routes/photoRoutes');
 
 // connect to MongoDB
 const dbURI = 'mongodb+srv://seo58:0924push@cluster0.sdirjwn.mongodb.net/NodeJS_MongoDB_HomePage?retryWrites=true&w=majority';
@@ -51,4 +52,4 @@ app.use(memberRoutes);
 app.use(researchRoutes);
 app.use(projectRoutes);
 app.use(publicationRoutes);
-
+app.use(photoRoutes);
