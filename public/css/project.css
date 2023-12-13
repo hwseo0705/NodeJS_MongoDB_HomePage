@@ -80,12 +80,15 @@
     padding-top: 15px;
 }
 
-/* .wrap .right .pagination {
+.wrap .right .pagination {
     display: flex;
-    justify-content: space-between;
-    width: 20%;
+    width: fit-content;
     margin: auto;
-    margin-top: 10px;
+}
+
+.wrap .right .pagination li {
+    margin-right: 13px;
+    margin-left: 13px;
 }
 
 .wrap .right .pagination .active {
@@ -94,8 +97,7 @@
 
 .wrap .right .pagination li:hover {
     color: #bbb;
-} */
-
+}
 .wrap .right #collab {
     margin-top: 70px;
 }

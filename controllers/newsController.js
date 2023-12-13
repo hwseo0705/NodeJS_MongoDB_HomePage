@@ -21,37 +21,42 @@ const news_add = (req, res) => {
 
 const news_index = async (req, res) => {
 
-    var perPage = 2;
-    const perPaging = 5;
+    try {
 
-    const total = await News.countDocuments(); // 총 게시글 수 세기
-    const totalPage = Math.ceil(total / perPage);
+        var perPage = 2;
+        const perPaging = 5;
 
-    var qp = req.query.page || 1;
-    if (qp < 1) qp = 1;
-    else if (qp > totalPage) qp = totalPage;
+        const total = await News.countDocuments(); // 총 게시글 수 세기
+        const totalPage = Math.ceil(total / perPage);
 
-
-    const page = Number(qp); // 값이 없다면 기본값으로 1 사용
-
-    where = Math.floor(page / perPaging);
-    if (page % perPaging == 0) where -= 1;
+        var qp = req.query.page || 1;
+        if (qp < 1) qp = 1;
+        else if (qp > totalPage) qp = totalPage;
 
 
-    startIndex = where * perPaging + 1;
-    if (startIndex < 1) startIndex = 1;
-    endIndex = startIndex + perPaging - 1;
-    if (endIndex > totalPage) endIndex = totalPage;
+        const page = Number(qp); // 값이 없다면 기본값으로 1 사용
 
-    console.log(startIndex, endIndex);
+        where = Math.floor(page / perPaging);
+        if (page % perPaging == 0) where -= 1;
 
-    await News.find()
-        .sort({ date: -1 })
-        .skip(perPage * (page - 1)) // 아래 설명 보기
-        .limit(perPage)
-        .then((result) => {
-            res.render('news/news', { news: result, page, startIndex, endIndex, totalPage });
-        });
+
+        startIndex = where * perPaging + 1;
+        if (startIndex < 1) startIndex = 1;
+        endIndex = startIndex + perPaging - 1;
+        if (endIndex > totalPage) endIndex = totalPage;
+
+        console.log(startIndex, endIndex);
+
+        await News.find()
+            .sort({ date: -1 })
+            .skip(perPage * (page - 1)) // 아래 설명 보기
+            .limit(perPage)
+            .then((result) => {
+                res.render('news/news', { news: result, page, startIndex, endIndex, totalPage });
+            });
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 const news_detail = (req, res) => {
