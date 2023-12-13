@@ -1,0 +1,56 @@
+<html lang="ko">
+
+<head>
+    <%- include('../partials/head.ejs')%>
+
+    <title>AVIP Lab - Photos</title>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="/css/photo.css">
+</head>
+
+<body>
+
+    <%- include('../partials/header.ejs')%>
+    <div class="wrap">
+        <div class="left">
+            <div class="box">
+                <h3>News</h3>
+            </div>
+            <ul>
+                <li><a href="/news">News</a></li>
+                <li><a href="/photo">Gallery</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <% if (isAdmin == 'admin') { %>
+                <button type="button" class="btn"><a href="/photo/write">추가</a></button>
+            <% } %>
+            <div class="photos">
+                <% if (result.length > 0) { %>
+                    <% result.forEach(n => { %>
+                        <a class="box" href="/photo/detail?id=<%= n._id %>">
+                            <img src="/img/<%= n.img %>" alt="gallery_img">
+                        </a>
+                    <% }) %>
+                <% } else { %>
+                    <p>There are No Photos to Display</p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <%- include('../partials/footer.ejs')%>
+
+</body>
+
+<script>
+    function confirmDelete(id) {
+        if(confirm("Are you sure you want to delete?")) {
+            if (confirm) {
+                location.href="/photo/delete?id=" + id;
+            }
+        }
+    }
+</script>
+
+</html>

@@ -11,9 +11,10 @@ a {
     margin: auto;
     display: flex;
     justify-content: space-between;
-    padding-top: 155px;
+    padding-top: 45px;
     padding-bottom: 100px;
     font-family: Arial, sans-serif;
+    min-height: 500px;
 }
 
 .wrap .left {

@@ -3,9 +3,13 @@
 @import url("common.css");
 
 .wrap .right .btn {
-    margin: 25px 5px;
+    margin-top: 30px;
     padding: 5px;
     font-size: 17px;
+}
+
+.wrap .right table {
+    margin-top: 30px;
 }
 
 .wrap .right .top {
@@ -21,6 +25,7 @@
 
 .wrap .right table {
     width: 100%;
+    margin-bottom: 30px;
 }
 
 .wrap .right table tr {
@@ -34,7 +39,6 @@
 .wrap .right table tr td {
     padding: 10px 0px 10px 15px;
 }
-
 
 .wrap .right table tr .title {
     width: 75%;

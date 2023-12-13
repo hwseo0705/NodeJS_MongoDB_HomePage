@@ -1,22 +1,13 @@
  <!-- header -->
  <header>
     <div class="logo">
-        <a href="/">
-            <div class="box">
-                <h2>AVIP LAB</h2>
-                <h3>Applied Vibration-Wave Propagaton Laboratory</h3>
-            </div>
-        </a>
-    </div>
-    <div class="button">
-        <% if (isAdmin == 'admin') { %>
-            <button type="button" class="btn"><a href="/logout">관리자 로그아웃</a></button>
-        <% } else { %>
-            <button type="button" class="btn"><a href="/login-form">관리자 로그인</a></button>
-        <% } %>
-    </div>    
+        <div class="box">
+            <a href="/">AVIP LAB</a>
+        </div>
+    </div>  
     <nav>
         <ul class="nav-list">
+            <li><a href="/">Home</a></li>
             <li><a href="/aboutUs">Members</a></li>
             <li><a href="/research">Research</a></li>
             <li><a href="/publication">Publications</a></li>

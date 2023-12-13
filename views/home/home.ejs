@@ -16,8 +16,15 @@
 
     <div class="wrap">
         <section class="main">
+            <div class="button">
+                <% if (isAdmin == 'admin') { %>
+                    <button type="button" class="btn"><a href="/logout">관리자 로그아웃</a></button>
+                <% } else { %>
+                    <button type="button" class="btn"><a href="/login-form">관리자 로그인</a></button>
+                <% } %>
+            </div>  
             <img src="/img/main.jpg" alt="main_img">
-            <div>
+            <div class="intro">
                 <p class="welcome">Welcome to Applied Vibration-Wave Propagation Laboratory</p>
                 <p class="goal">
                     The goal of our lab is to develop dynamics-based deep learning technology that hybridizes modeling of

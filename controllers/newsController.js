@@ -79,7 +79,7 @@ const news_modify_get = (req, res) => {
         });
 };
 
-const news_modify_post = (req, res) => {
+const news_modify_put = (req, res) => {
     News.findByIdAndUpdate(req.query.id, req.body)
         .then((result) => {
             res.redirect('/news/detail?id=' + req.query.id);
@@ -105,7 +105,7 @@ module.exports = {
     news_write_get,
     news_write_post,
     news_modify_get,
-    news_modify_post,
+    news_modify_put,
     news_delete,
     news_detail
 }

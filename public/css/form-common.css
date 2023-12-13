@@ -8,9 +8,10 @@ a {
 .wrap {
     width: 60%;
     margin: auto;
-    padding-top: 180px;
+    padding-top: 80px;
     padding-bottom: 30px;
     font-family: Arial, sans-serif;
+    min-height: 500px;
 }
 
 .wrap .box {

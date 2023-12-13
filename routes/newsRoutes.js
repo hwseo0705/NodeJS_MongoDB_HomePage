@@ -15,7 +15,7 @@ router.post('/news/write', newsController.news_write_post);
 
 router.get('/news/modify', newsController.news_modify_get);
 
-router.put('/news/modify', newsController.news_modify_post);
+router.put('/news/modify', newsController.news_modify_put);
 
 router.get('/news/delete', newsController.news_delete);
 

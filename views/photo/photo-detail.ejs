@@ -3,10 +3,10 @@
 <head>
     <%- include('../partials/head.ejs')%>
 
-    <title>AVIP Lab - News</title>
+    <title>AVIP Lab - Photos</title>
 
     <!-- custom css -->
-    <link rel="stylesheet" href="/css/news-detail.css">
+    <link rel="stylesheet" href="/css/photo-detail.css">
 </head>
 
 <body>
@@ -25,25 +25,25 @@
 
         <div class="right">
             <div class="title">
-                <h3><%= news.title %></h3>
-                <span><%= news.date %></span>
+                <h3>title</h3>
+                <span>2023.01.01</span>
             </div>
             <div class="content">
-                <% if (news.img) { %>
+                <% if (result.img) { %>
                     <div class="image">
-                        <img src="/img/<%= news.img %>" alt="">
+                        <img src="/img/<%= result.img %>" alt="gallery_img">
                     </div>
                 <% } %>
                 <div class="write">
-                    <p class="body"><%= news.content %></p>
+                    <p class="body">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</p>
                 </div>
             </div>
             <div class="button">
                 <% if (isAdmin == 'admin') { %>
-                    <button type="button" class="btn"><a href="/news/modify?id=<%= news._id %>">수정</a></button>
+                    <button type="button" class="btn"><a href="/photo/modify?id=<%= result._id %>">수정</a></button>
                     <button type="button" onclick="confirmDelete()" class="btn"><a href=#>삭제</a></button>
                 <% } %>
-                <button type="button" class="btn"><a href="/news">목록</a></button>
+                <button type="button" class="btn"><a href="/photo">목록</a></button>
             </div>
         </div>
     </div>
@@ -55,7 +55,7 @@
     function confirmDelete() {
         if(confirm("Are you sure you want to delete?")) {
             if (confirm) {
-                location.href="/news/delete?id=<%= news._id %>";
+                location.href="/photo/delete?id=<%= result._id %>";
             }
         }
     }

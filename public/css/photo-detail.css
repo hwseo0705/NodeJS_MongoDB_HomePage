@@ -1,0 +1,64 @@
+@import url("footer.css");
+@import url("header.css");
+@import url("common.css");
+
+
+.wrap .right .title {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-top: 1px solid #000;
+    margin-top: 30px;
+    background: #ddd;
+}
+
+.wrap .right .title h3 {
+    width: 90%;
+    margin-right: 2%;
+    line-height: 1.2;
+}
+
+.wrap .right .title span {
+    width: 8%;
+    text-align: center;
+    margin: auto;
+}
+
+.wrap .right .content {
+    margin-top: 40px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 40px;
+    min-height: 200px;
+}
+
+.wrap .right .content .image {
+    width: 60%;
+    margin: auto;
+}
+
+.wrap .right .content .image img {
+    width: 100%;
+}
+
+.wrap .right .content .write {
+    width: 95%;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.wrap .right .content .write .body {
+    width: 100%;
+}
+
+.wrap .right .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap .right .btn {
+    margin-top: 20px;
+    padding: 10px;
+    margin-left: 10px;
+}
