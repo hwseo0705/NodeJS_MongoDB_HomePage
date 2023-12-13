@@ -38,21 +38,18 @@ const members_add_alumni = (req, res) => {
         });
 };
 
-const members_index = (req, res) => {
-    const request = req.query.status;
+const members_index = async (req, res) => {
+    try {
+        const query1 = Members.find({ status: 'grad' }).sort({ date: 1 }).exec();
+        const query2 = Members.find({ status: 'under' }).sort({ date: 1 }).exec();
 
-    if (request == 'all') {
-        mem = Members.find().sort({ status: 1 });
-    } else if (request == 'grad' || request == 'under') {
-        mem = Members.find({ status: request }).sort({ status: 1 });
-    }
+        const [grad, under] = await Promise.all([query1, query2]);
 
-    mem.then((result) => {
-        res.render('member/member', { result, request });
-    })
-        .catch((err) => {
-            console.error(error);
-        });
+        const request = 'student';
+        res.render('member/member', { grad, under, request });
+    } catch (error) {
+        console.error(error);
+    };
 };
 
 const members_alumni_index = (req, res) => {
@@ -73,7 +70,7 @@ const members_write_get = (req, res) => {
 
 const members_write_post = (req, res) => {
     const request = req.query.status;
-    if (request == 'grad' || request == 'under') {
+    if (request == 'student') {
         const mem = new Members(req.body);
         mem.save()
             .then((result) => {
@@ -96,7 +93,7 @@ const members_write_post = (req, res) => {
 
 const members_modify_get = (req, res) => {
     const request = req.query.status;
-    if (request == 'grad' || request == 'under') {
+    if (request == 'student') {
         Members.findById(req.query.id)
             .then((result) => {
                 res.render('member/member-modify', { result, request });
@@ -119,7 +116,7 @@ const members_modify_put = (req, res) => {
 
     const request = req.query.status;
 
-    if (request == 'grad' || request == 'under') {
+    if (request == 'student') {
         Members.findByIdAndUpdate(req.query.id, req.body)
             .then((result) => {
                 res.redirect('/member?status=' + request);
@@ -142,7 +139,7 @@ const members_delete = (req, res) => {
 
     const request = req.query.status;
 
-    if (request == 'grad' || request == 'under') {
+    if (request == 'student') {
         Members.deleteOne({ _id: req.query.id })
             .then((result) => {
                 res.redirect('/member?status=' + request);
@@ -157,7 +154,7 @@ const members_delete = (req, res) => {
             })
             .catch((err) => {
                 console.log(err);
-            });;
+            });
     }
 };
 

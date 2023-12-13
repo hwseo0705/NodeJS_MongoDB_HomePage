@@ -16,22 +16,23 @@
     <%- include('../partials/header.ejs')%>
 
     <div class="wrap">
-
         <div class="left">
             <div class="box">
-                <h3>Principal<br>Investigator</h3>
+                <h3>Members</h3>
             </div>
             <ul>
                 <li><a href="/pi">Principal Investigator</a></li>
+                <li><a href="/member">Students</a></li>
+                <li><a href="/alumni">Alumni</a></li>
             </ul>
         </div>
         <div class="right">
             <section class="info">
                 <div class="inner">
-                    <div class="left">
+                    <div class="inner-left">
                         <img src="/img/pi.jpg" alt="pi_profile_img">
                     </div>
-                    <div class="right">
+                    <div class="inner-right">
                         <h2>Yunsang Kwak (곽윤상)</h2>
                         <p><strong>Research Interests</strong> - Wave transfer, Computational mechanics,
                             Physics-based deep learning, Biomechanics Assistant Professor</p>
@@ -55,10 +56,10 @@
                     <% if (eduExp.length > 0) { %>
                         <% eduExp.forEach(n => { %>
                             <li>
-                                <div class="left">
+                                <div class="edu-left">
                                     <h3 class="date"><%= n.date %></h3>
                                 </div>
-                                <div class="right">
+                                <div class="edu-right">
                                     <h3 class="title"><%= n.title %></h3>
                                     <p class="description"><%= n.info %></p>
                                 </div>

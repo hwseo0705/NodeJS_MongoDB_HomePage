@@ -2,52 +2,65 @@
 @import url("header.css");
 @import url("common.css");
 
+
 .wrap .right .button {
-    margin: 30px 0px 0px 10px;
+    margin-top: 30px;
     padding: 5px;
     font-size: 17px;
 }
 
-.wrap .right .tabcontent ul {
+.wrap .right .content {
+    margin-top: 30px;
+}
+
+.wrap .right .content h2 {
+    margin: 10px 0px;
+    padding: 20px;
+    font-size: 25px;
+    background: #eee;
+}
+
+.wrap .right .content ul {
     display: flex;
     flex-wrap: wrap;
     padding-top: 20px;
 }
 
-.wrap .right .tabcontent ul li {
+.wrap .right .content ul li {
     width: 49%;
     margin-right: 1%;
     display: flex;
     padding-bottom: 20px;
 }
 
-.wrap .right .tabcontent ul li .img-box {
-    width: 150px;
-    margin-right: 40px;
+.wrap .right .content ul li .img-box {
+    width: 28%;
+    margin-right: 4%;
 }
 
-.wrap .right .tabcontent ul li .img-box img {
+.wrap .right .content ul li .img-box img {
     width: 100%;
+    height: 100%;
 }
 
-.wrap .right .tabcontent ul li .info {
+.wrap .right .content ul li .info {
     line-height: 1.5;
 }
 
-.wrap .right .tabcontent ul li .info h3 {
+.wrap .right .content ul li .info h3 {
     padding-top: 10px;
     font-size: 25px;
     font-weight: bold;
 }
 
-.wrap .right .tabcontent ul li .info p {
+.wrap .right .content ul li .info p {
     padding-top: 10px;
 }
 
-.wrap .right .tabcontent ul li .info p b {
+.wrap .right .content ul li .info p b {
     font-weight: bold;
 }
 
-.wrap .right .tabcontent ul li .info button {
-    margin-top: 10px;
+.wrap .right .content ul li .info button {
+    margin: 10px 5px 0px 0px;
 }

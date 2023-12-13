@@ -22,46 +22,91 @@
                 <h3>Members</h3>
             </div>
             <ul>
-                <li><a href="/member?status=all">All</a></li>
-                <li><a href="/member?status=grad">Graduate</a></li>
-                <li><a href="/member?status=under">Undergraduate</a></li>
+                <li><a href="/pi">Principal Investigator</a></li>
+                <li><a href="/member">Students</a></li>
                 <li><a href="/alumni">Alumni</a></li>
             </ul>
         </div>
 
         <div class="right">
             <% if (isAdmin == 'admin') { %>
-                <% if (request != 'all') { %>
-                    <button type="button" class="button"><a href="/member/write?status=<%= request %>">추가</a></button>
-                <% } %> 
+                <button type="button" class="button"><a href="/member/write?status=<%= request %>">추가</a></button>
             <% } %>
-            <section class="tabcontent">
-                <ul>
-                    <% if (result.length > 0) { %>
-                        <% result.forEach(n => { %>
-                            <li>
-                                <div class="img-box">
-                                    <img src="/img/<%= n.img %>" alt="학생 이미지">
-                                </div>
-                                <div class="info">
-                                    <h3><%= n.name %></h3>
-                                    <p><b>E</b> &emsp; <%= n.email %></p>
-                                    <% if (request == 'alumni') { %>
-                                        <p>소속: <%= n.info %></p>
-                                    <% } else { %>
+            <section class="content">
+                <% if (request == 'student') { %>
+                    <h2>Graduate Students</h2>
+                    <% if (grad.length > 0) { %>
+                        <ul>
+                            <% grad.forEach(n => { %>
+                                <li>
+                                    <div class="img-box">
+                                        <img src="/img/<%= n.img %>" alt="student_img">
+                                    </div>
+                                    <div class="info">
+                                        <h3><%= n.name %></h3>
+                                        <p><b>E</b> &emsp; <%= n.email %></p>
                                         <p>Since <%= n.date %></p>
-                                    <% } %> 
-                                    <% if (isAdmin == 'admin' && request != 'all') { %>
-                                        <button type="button" class="btn"><a href="/member/modify?id=<%= n._id %>&status=<%= request %>">수정</a></button>
-                                        <button type="button" id="<%= n._id%>" name="<%= request %>" onclick="confirmDelete(id, name)" class="btn"><a href="">삭제</a></button>
-                                    <% } %>
-                                </div>
-                            </li>
-                        <% }) %>
+                                        <% if (isAdmin == 'admin') { %>
+                                            <button type="button" class="btn"><a href="/member/modify?id=<%= n._id %>&status=<%= request %>">수정</a></button>
+                                            <button type="button" id="<%= n._id%>" name="<%= request %>" onclick="confirmDelete(id, name)" class="btn"><a href="">삭제</a></button>
+                                        <% } %>
+                                    </div>
+                                </li>
+                            <% }) %>
+                        </ul>
                     <% } else { %>
-                        <p>There are No Members to Display...</p>
+                        p>There are No Graduates to Display...</p>
                     <% } %>
-                </ul>
+
+                    <h2>Undergraduate Students</h2>
+                    <% if (under.length > 0) { %>
+                        <ul>
+                            <% under.forEach(n => { %>
+                                <li>
+                                    <div class="img-box">
+                                        <img src="/img/<%= n.img %>" alt="student_img">
+                                    </div>
+                                    <div class="info">
+                                        <h3><%= n.name %></h3>
+                                        <p><b>E</b> &emsp; <%= n.email %></p>
+                                        <p>Since <%= n.date %></p>
+                                        <% if (isAdmin == 'admin') { %>
+                                            <button type="button" class="btn"><a href="/member/modify?id=<%= n._id %>&status=<%= request %>">수정</a></button>
+                                            <button type="button" id="<%= n._id%>" name="<%= request %>" onclick="confirmDelete(id, name)" class="btn"><a href="">삭제</a></button>
+                                        <% } %>
+                                    </div>
+                                </li>
+                            <% }) %>
+                        </ul>
+                    <% } else { %>
+                        p>There are No Undergraduates to Display...</p>
+                    <% } %>
+
+                <% } else if (request == 'alumni') { %>
+                    <h2>Alumni</h2>
+                    <% if (result.length > 0) { %>
+                        <ul>
+                            <% result.forEach(n => { %>
+                                <li>
+                                    <div class="img-box">
+                                        <img src="/img/<%= n.img %>" alt="alumni_img">
+                                    </div>
+                                    <div class="info">
+                                        <h3><%= n.name %></h3>
+                                        <p><b>E</b> &emsp; <%= n.email %></p>
+                                        <p>소속: <%= n.info %></p>
+                                        <% if (isAdmin == 'admin') { %>
+                                            <button type="button" class="btn"><a href="/member/modify?id=<%= n._id %>&status=<%= request %>">수정</a></button>
+                                            <button type="button" id="<%= n._id%>" name="<%= request %>" onclick="confirmDelete(id, name)" class="btn"><a href="">삭제</a></button>
+                                        <% } %>
+                                    </div>
+                                </li>
+                            <% }) %>
+                        </ul>
+                    <% } else { %>
+                            <p>There are No Alumni to Display...</p>
+                    <% } %>
+                <% } %>
             </section>
         </div>
 
