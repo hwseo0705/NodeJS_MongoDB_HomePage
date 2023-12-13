@@ -28,18 +28,34 @@ a {
 
 .main .slide .mySlides img {
     width: 100%;
-    filter: brightness(50%)
+    filter: brightness(80%)
 }
 
 .main .slide .mySlides div {
-    width: 50%;
+    width: 80%;
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
+    /* text-align: center; */
     color: #fff;
-    line-height: 2;
+    line-height: 1.3;
+    background: #000;
+    opacity: 0.6;
+}
+
+.main .slide .mySlides div p {
+    font-size: 17px;
+}
+
+.main .slide .mySlides div .welcome {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.main .slide .mySlides div .korean {
+    margin-top: 20px;
+    font-size: 14px;
 }
 
 .main .slide .mySlides h2 {

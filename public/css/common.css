@@ -23,7 +23,7 @@ a {
 
 .wrap .left .box {
     background: url("../img/intro.jpg");
-    height: 200px;
+    height: 60px;
     position:relative;
 }
 
@@ -42,4 +42,5 @@ a {
 
 .wrap .right {
     width: 83%;
+    margin-top: 20px;
 }
