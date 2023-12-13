@@ -9,13 +9,12 @@
 }
 
 .wrap .right .top .title {
-    font-size: 35px;
+    font-size: 30px;
 }
 
 .wrap .right .bottom img {
     width: 100%;
 }
-
 
 .wrap .right .button {
     display: flex;

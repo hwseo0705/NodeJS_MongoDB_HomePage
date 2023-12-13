@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const ongoingProjectSchema = new Schema({
+const projectSchema = new Schema({
     kTitle: {
         type: String,
         required: true
@@ -32,8 +32,8 @@ const ongoingProjectSchema = new Schema({
     }
 });
 
-const OngoingProjects = mongoose.model('OngoingProjects', ongoingProjectSchema);
-module.exports = OngoingProjects;
+const Projects = mongoose.model('Projects', projectSchema);
+module.exports = Projects;
 
 /*
 

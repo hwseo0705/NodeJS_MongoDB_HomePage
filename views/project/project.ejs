@@ -1,14 +1,12 @@
 <html lang="ko">
 
 <head>
-
     <%- include('../partials/head.ejs') %>
 
     <title>AVIP Lab - Project</title>
 
     <!-- custom css -->
     <link rel="stylesheet" href="/css/project.css">
-
 </head>
 
 <body>
@@ -18,118 +16,84 @@
     <div class="wrap">
         <div class="left">
             <div class="box">
-                <h3>Projects</h3>
+                <h3>Research</h3>
             </div>
             <ul>
-                <li><a href="/project/ongoing">Ongoing Projects</a></li>
-                <li><a href="/project/research">Research Experience</a></li>
-                <li><a href="/project/collab">Collaborators</a></li>
+                <li><a href="/research">Research</a></li>
+                <li><a href="/project">Projects</a></li>
             </ul>
         </div>
         
         <div class="right">
-            <% if (status == 'ongoing') { %>
-                <section id="ongoing" class="tabcontent">
-                    <div class="top">
-                        <h2>Ongoing Projects</h2>
-                        <% if (isAdmin == 'admin') { %>
-                            <button type="button" class="button"><a href="/project/ongoing/write">추가</a></button>
-                        <% } %>
-                    </div>
-                    <ul>
-                        <% if (result.length > 0) { %>
-                            <% result.forEach(n => { %>
-                                <li class="outer">
-                                    <div class="left">
-                                        <img src="/img/<%= n.img %>" alt="로고이미지">
-                                        <% if (isAdmin == 'admin') { %>
-                                            <button type="button" class="button" style="margin-right: 5px;"><a href="/project/ongoing/modify?id=<%= n._id %>">수정</a></button>
-                                            <button type="button" id="<%= n._id%>" onclick="confirmDelete(id, 'ongoing')"  class="button"><a href="#">삭제</a></button>
-                                        <% } %>
-                                    </div>
-                                    <div class="right">
-                                        <h3 class="title"><%= n.kTitle %></h3>
-                                        <h3 class="description"><%= n.eTitle %></h3>
+            <section id="project">
+                <% if (isAdmin == 'admin') { %>
+                    <button type="button" class="button"><a href="/project/write">추가</a></button>
+                <% } %>
+                <div class="label">
+                    <div class="proj">프로젝트</div>
+                    <div class="date">기간</div> 
+                </div>
+                <div class="list">
+                    <% if (project.length > 0) { %>
+                        <% project.forEach(n => { %>
+                            <div class="inner">
+                                <div class="proj">
+                                    <div class="img"><img src="/img/<%= n.img %>" alt="project_img"></div>
+                                    <div class="content">
+                                        <p class="kTitle"><%= n.kTitle %></p>
+                                        <p class="eTitle"><%= n.eTitle %></p>
                                         <ul>
                                             <li><%= n.position %></li>
                                             <li><%= n.institution %></li>
-                                            <li><%= n.date %> (<%= n.budget %>)</li>
+                                            <li><%= n.budget %></li>
                                         </ul>
                                     </div>
-                                </li>
-                            <% }) %>
-                        <% } else { %>
-                            <p>There are No Ongoing Projects to Display...</p>
-                        <% } %>
-                    </ul>
-                </section>
-            <% } else if (status == 'research') { %>
-                <section id="research" class="tabcontent">
-                    <div class="top">
-                        <h2>Research Experience</h2>
-                        <% if (isAdmin == 'admin') { %>
-                            <button type="button" class="button"><a href="/project/research/write">추가</a></button>
-                        <% } %>
-                    </div>
+                                </div>
+                                <div class="date">
+                                    <%= n.date %>
+                                    <% if (isAdmin == 'admin') { %>
+                                        <button type="button" class="button" style="margin-right: 5px;"><a href="/project/modify?id=<%= n._id %>">수정</a></button>
+                                        <button type="button" id="<%= n._id%>" onclick="confirmDelete(id)"  class="button"><a href="#">삭제</a></button>
+                                    <% } %></div>
+                            </div>                        
+                        <% }) %>
+                    <% } else { %>
+                        <p>There are No Projects to Display...</p>
+                    <% } %>
+                </div>                    
+            </section>
+      
+            <section id="collab" class="tabcontent">
+                <div class="top">
+                    <h2>Collaborators</h2>
+                    <% if (isAdmin == 'admin') { %>
+                        <button type="button" class="button"><a href="/project/collab/write">추가</a></button>
+                    <% } %>
+                </div>
+                <div class="box">
                     <ul>
-                        <% if (result.length > 0) { %>
-                            <% result.forEach(n => { %>
+                        <% if (collab.length > 0) { %>
+                            <% collab.forEach(n => { %>
                                 <li>
-                                    <div class="left">
-                                        <h3 class="date"><%= n.date %></h3>
+                                    <div class="img-box">
+                                        <img src="/img/<%= n.img %>" alt="collaborator_img">
                                     </div>
-                                    <div class="right">
-                                        <h3 class="title">
-                                            <%= n.institution %>
-                                            <% if (isAdmin == 'admin') { %>
-                                                <button type="button" class="button" style="margin-right: 5px;"><a href="/project/research/modify?id=<%= n._id %>">수정</a></button>
-                                                <button type="button" id="<%= n._id%>" onclick="confirmDelete(id, 'research')" class="button"><a href="#">삭제</a></button>
-                                            <% } %>
-                                        </h3>
-                                        <p class="description"><%= n.title %></p>
+                                    <div class="bottom">
+                                        <h3><%= n.institution %></h3>
+                                        <p><%= n.name %></p>
+                                        <% if (isAdmin == 'admin') { %>
+                                            <button type="button" class="button" style="margin-right: 5px;"><a href="/project/collab/modify?id=<%= n._id %>">수정</a></button>
+                                            <button type="button" id="<%= n._id%>" onclick="collabConfirmDelete(id)" class="button"><a href="#">삭제</a></button>
+                                        <% } %>
                                     </div>
                                 </li>
                             <% }) %>
                         <% } else { %>
-                            <p>There are No Research Experiences to Display...</p>
+                            <p>There are No Collaborators to Display...</p>
                         <% } %>
                     </ul>
-                </section>
-            <% } else if (status == 'collab') { %>
-                <section id="collab" class="tabcontent">
-                    <div class="top">
-                        <h2>Collaborators</h2>
-                        <% if (isAdmin == 'admin') { %>
-                            <button type="button" class="button"><a href="/project/collab/write">추가</a></button>
-                        <% } %>
-                    </div>
-                    <div class="box">
-                        <ul>
-                            <% if (result.length > 0) { %>
-                                <% result.forEach(n => { %>
-                                    <li>
-                                        <div class="img-box">
-                                            <img src="/img/<%= n.img %>" alt="collaborator_img">
-                                        </div>
-                                        <div class="bottom">
-                                            <h3><%= n.institution %></h3>
-                                            <p><%= n.name %></p>
-                                            <% if (isAdmin == 'admin') { %>
-                                                <button type="button" class="button" style="margin-right: 5px;"><a href="/project/collab/modify?id=<%= n._id %>">수정</a></button>
-                                                <button type="button" id="<%= n._id%>" onclick="confirmDelete(id, 'collab')" class="button"><a href="#">삭제</a></button>
-                                            <% } %>
-                                        </div>
-                                    </li>
-                                <% }) %>
-                            <% } else { %>
-                                <p>There are No Collaborators to Display...</p>
-                            <% } %>
-                        </ul>
-                    </div>
-                </section>
-            <% } else { %>
-                <p>There is Nothing to Display...</p>
-            <% } %>
+                </div>
+            </section>
         </div>
     </div>
 
@@ -138,10 +102,18 @@
 </body>
 
 <script>
-    function confirmDelete(id, status) {
+    function confirmDelete(id) {
         if(confirm("Are you sure you want to delete?")) {
             if (confirm) {
-                    location.href="/project/" + status + "/delete?id=" + id;
+                    location.href="/project/delete?id=" + id;
+            }
+        }
+    }
+
+    function collabConfirmDelete(id) {
+        if(confirm("Are you sure you want to delete?")) {
+            if (confirm) {
+                    location.href="/project/collab/delete?id=" + id;
             }
         }
     }
