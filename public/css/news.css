@@ -19,7 +19,8 @@
     padding: 17px;
 }
 
-.wrap .right .top .title, .date {
+.wrap .right .top .title,
+.date {
     text-align: center;
 }
 
@@ -52,10 +53,13 @@
 
 .wrap .right .pagination {
     display: flex;
-    justify-content: space-between;
-    width: 20%;
+    width: fit-content;
     margin: auto;
-    margin-top: 10px;
+}
+
+.wrap .right .pagination li {
+    margin-right: 13px;
+    margin-left: 13px;
 }
 
 .wrap .right .pagination .active {

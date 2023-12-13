@@ -21,24 +21,36 @@ const news_add = (req, res) => {
 
 const news_index = async (req, res) => {
 
-    var ind = req.query.index;
-    if (ind == undefined) ind = 1;
+    var perPage = 2;
+    const perPaging = 5;
 
-    const page = Number(req.query.page || 1); // 값이 없다면 기본값으로 1 사용
-    const perPage = 5;
-
-    const total = await News.countDocuments({}); // 총 게시글 수 세기
+    const total = await News.countDocuments(); // 총 게시글 수 세기
     const totalPage = Math.ceil(total / perPage);
+
+    var qp = req.query.page || 1;
+    if (qp < 1) qp = 1;
+    else if (qp > totalPage) qp = totalPage;
+
+
+    const page = Number(qp); // 값이 없다면 기본값으로 1 사용
+
+    where = Math.floor(page / perPaging);
+    if (page % perPaging == 0) where -= 1;
+
+
+    startIndex = where * perPaging + 1;
+    if (startIndex < 1) startIndex = 1;
+    endIndex = startIndex + perPaging - 1;
+    if (endIndex > totalPage) endIndex = totalPage;
+
+    console.log(startIndex, endIndex);
 
     await News.find()
         .sort({ date: -1 })
-        .skip(perPage * (page - 1))
+        .skip(perPage * (page - 1)) // 아래 설명 보기
         .limit(perPage)
         .then((result) => {
-            res.render('news/news', { news: result, pages: totalPage, index: ind });
-        })
-        .catch(err => {
-            console.log(err);
+            res.render('news/news', { news: result, page, startIndex, endIndex, totalPage });
         });
 };
 

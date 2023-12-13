@@ -23,7 +23,8 @@
     padding: 17px;
 }
 
-.wrap .right .content .top .title, .date {
+.wrap .right .content .top .title,
+.date {
     text-align: center;
 }
 
@@ -73,7 +74,7 @@
 }
 
 .wrap .right .content tr .date p {
-        margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .wrap .right .content h3 {
@@ -82,21 +83,24 @@
     border-bottom: 1px solid #777;
 }
 
-.wrap .right .content ul{
+.wrap .right .content ul {
     padding: 18px;
     line-height: 2;
 }
 
-.wrap .right .content ul li{
+.wrap .right .content ul li {
     margin-bottom: 10px;
 }
 
 .wrap .right .pagination {
     display: flex;
-    justify-content: space-between;
-    width: 20%;
+    width: fit-content;
     margin: auto;
-    margin-top: 10px;
+}
+
+.wrap .right .pagination li {
+    margin-right: 13px;
+    margin-left: 13px;
 }
 
 .wrap .right .pagination .active {
