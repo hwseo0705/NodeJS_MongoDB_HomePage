@@ -38,6 +38,10 @@ const members_add_alumni = (req, res) => {
         });
 };
 
+const members_aboutUs = (req, res) => {
+    res.render('member/aboutUs');
+};
+
 const members_index = async (req, res) => {
     try {
         const query1 = Members.find({ status: 'grad' }).sort({ date: 1 }).exec();
@@ -161,6 +165,7 @@ const members_delete = (req, res) => {
 module.exports = {
     members_add,
     members_add_alumni,
+    members_aboutUs,
     members_index,
     members_alumni_index,
     members_write_get,

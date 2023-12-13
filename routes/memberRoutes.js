@@ -5,6 +5,7 @@ const membersController = require('../controllers/membersController');
 // router.get('/add-members', membersController.members_add);
 // router.get('/add-alumni',  membersController.members_add_alumni);
 
+router.get('/aboutUs', membersController.members_aboutUs);
 router.get('/member', membersController.members_index);
 router.get('/alumni', membersController.members_alumni_index);
 
