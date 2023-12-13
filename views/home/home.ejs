@@ -16,66 +16,40 @@
 
     <div class="wrap">
         <section class="main">
-            <div class="slide">
-                <div class="mySlides">
-                    <img src="/img/main.png" alt="main_img">
-                    <div>
-                        <p class="welcome">Welcome to Applied Vibration-Wave Propagation Laboratory.</p>
-                        <p class="goal">
-                            The goal of our lab is to develop dynamics-based deep learning technology that hybridizes modeling of
-                            vibration-wave systems and signal processing, breaking away from limitation of data-driven technologies.
-                            We thus interest in "diagnosis method of mechanical systems", "advanced sensing techniques"
-                            and "vibrational evaluation of meta-structures" based on vibration-wave analysis.
-                        </p>
-                        <p class="korean">
-                            저희 연구실에서는 열정 있는 학부인턴 & 대학원생들을 모집하고 있습니다.
-                            관심 있는 분은 이메일로 연락 주시기 바랍니다.
-                        </p>
-                        <p>
-                            We are looking for undergraduate and graduate students with a strong interest and continuous curiosity
-                            in fundamental mechanical engineering. Should you have any questions, feel free to reach out to me.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="aboutUs">
-            <div class="img">
-                <img src="/img/test2.png" alt="">
-            </div>
-            <div class="content">
-                <h3>About Us</h3>
-                <p class="welcome">Welcome to Applied Vibration-Wave Propagation Laboratory.</p>
+            <img src="/img/main.jpg" alt="main_img">
+            <div>
+                <p class="welcome">Welcome to Applied Vibration-Wave Propagation Laboratory</p>
                 <p class="goal">
                     The goal of our lab is to develop dynamics-based deep learning technology that hybridizes modeling of
-                    vibration-wave systems and signal processing, breaking away from limitation of data-driven technologies.<br>
+                    vibration-wave systems and signal processing, breaking away from limitation of data-driven technologies.
                     We thus interest in "diagnosis method of mechanical systems", "advanced sensing techniques"
                     and "vibrational evaluation of meta-structures" based on vibration-wave analysis.
                 </p>
                 <p class="korean">
-                    저희 연구실에서는 열정 있는 학부인턴 & 대학원생들을 모집하고 있습니다.<br>
-                    관심 있는 분은 이메일로 연락 주시기 바랍니다.<br>
+                    저희 연구실에서는 열정 있는 학부인턴 & 대학원생들을 모집하고 있습니다.
+                    관심 있는 분은 이메일로 연락 주시기 바랍니다.
+                </p>
+                <p class="english">
                     We are looking for undergraduate and graduate students with a strong interest and continuous curiosity
                     in fundamental mechanical engineering. Should you have any questions, feel free to reach out to me.
                 </p>
             </div>
         </section>
 
-        <div class="news-wrap">
-            <section class="news">
+        <section class="news">
+            <div class="news-wrap">
                 <h3 class="top">News</h3>
                 <ul>
                     <% if (news.length > 0) { %>
-                        <% for (let i = 0; i < 4; i++) { %>
+                        <% for (let i = 0; i < 10; i++) { %>
                             <li>
                                 <div class="img-box">
                                     <img src="/img/<%= news[i].img %>" alt="news_img">
                                 </div>
-                                <div class="name">
-                                    <span><%= news[i].title %></span>
-                                    <h3><%= news[i].date %></h3>
-                                    <p><a href="/news/<%= news[i]._id %>">Read More +</a></p>
+                                <div class="info">
+                                    <p class="title"><%= news[i].title %></p>
+                                    <p class="date"><%= news[i].date %></p>
+                                    <p class="read"><a href="/news/detail?id=<%= news[i]._id %>">Read More +</a></p>
                                 </div>
                             </li>
                         <% } %>
@@ -83,29 +57,9 @@
                         <p>There are No News To Display...</p>
                     <% } %>
                 </ul>
-            </section>
-
-            <section class="news_list">
-                <div class="list_title">
-                    <h2>More Headline</h2>
-                    <span><a href="/news">More +</a></span>
-                </div>
-                <ul>
-                    <% if (news.length > 0) { %>
-                        <% news.forEach(n => { %>
-                            <li>
-                                <a href="/news/<%= n._id %>">
-                                    <span class="title"><%= n.title %></span>
-                                    <b class="date"><%= n.date %></b>
-                                </a>
-                            </li>
-                        <% }) %>
-                    <% } else { %>
-                        <p>There are No News To Display...</p>
-                    <% } %>
-                </ul>
-            </section>
-        </div>
+                <a href="/news"><div class="more">More +</div></a>
+            </div>
+        </section>
         <%- include('../partials/footer.ejs')%>
     </div>
 

@@ -14,8 +14,8 @@ app.use(session({
 }));
 
 app.use(function (req, res, next) {
-    res.locals.isAdmin = req.session.username;
-    // res.locals.isAdmin = 'admin';
+    // res.locals.isAdmin = req.session.username;
+    res.locals.isAdmin = 'admin';
     next();
 });
 
