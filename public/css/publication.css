@@ -3,27 +3,31 @@
 @import url("common.css");
 
 .wrap .right .button {
-    margin: 25px 5px;
+    margin-top: 30px;
     padding: 5px;
     font-size: 17px;
 }
 
-.wrap .right .tabcontent table {
+.wrap .right .content {
+    margin-top: 30px;
+}
+
+.wrap .right .content table {
     width: 100%;
 }
 
-.wrap .right .tabcontent .top {
+.wrap .right .content .top {
     background: #000;
     color: #fff;
     font-size: 17px;
     padding: 17px;
 }
 
-.wrap .right .tabcontent .top .title, .date {
+.wrap .right .content .top .title, .date {
     text-align: center;
 }
 
-.wrap .right .tabcontent tr {
+.wrap .right .content tr {
     /* width: 95%;
     margin: auto;
     display: flex;
@@ -38,52 +42,52 @@
     padding: 13px;
 }
 
-.wrap .right .tabcontent tr td {
+.wrap .right .content tr td {
     text-align: center;
     padding: 10px 0px 10px 15px;
 }
 
-.wrap .right .tabcontent tr td .name {
+.wrap .right .content tr td .name {
     color: rgb(2, 27, 153);
 }
 
-.wrap .right .tabcontent tr td .author {
+.wrap .right .content tr td .author {
     color: grey;
 }
 
-.wrap .right .tabcontent tr .num {
+.wrap .right .content tr .num {
     width: 7%;
     margin-right: 1%;
     text-align: center;
 }
 
-.wrap .right .tabcontent tr .title {
+.wrap .right .content tr .title {
     width: 75%;
     margin-right: 4%;
     line-height: 1.4;
     text-align: left;
 }
 
-.wrap .right .tabcontent tr .date {
+.wrap .right .content tr .date {
     width: 11%;
 }
 
-.wrap .right .tabcontent tr .date p {
+.wrap .right .content tr .date p {
         margin-bottom: 10px;
 }
 
-.wrap .right .tabcontent h3 {
+.wrap .right .content h3 {
     padding: 40px 0 25px 0;
     font-size: 25px;
     border-bottom: 1px solid #777;
 }
 
-.wrap .right .tabcontent ul{
+.wrap .right .content ul{
     padding: 18px;
     line-height: 2;
 }
 
-.wrap .right .tabcontent ul li{
+.wrap .right .content ul li{
     margin-bottom: 10px;
 }
 

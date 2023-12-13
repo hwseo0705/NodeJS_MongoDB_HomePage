@@ -41,6 +41,26 @@ const add_collaborator = (req, res) => {
 };
 
 const project_index = async (req, res) => {
+
+/*
+        var ind = req.query.index;
+        if (ind == undefined) ind = 1;
+
+        var page = Number(req.query.page || 1); // 값이 없다면 기본값으로 1 사용
+        var perPage = 5;
+        const total = await Publications.countDocuments(); // 총 게시글 수 세기
+        const totalPage = Math.ceil(total / perPage);
+        const request = 'publication';
+
+        await Publications.find()
+            .sort({ date: -1 })
+            .skip(perPage * (page - 1)) // 아래 설명 보기
+            .limit(perPage)
+            .then((result) => {
+                res.render('publication/publication', { result, request, totalPage, ind });
+            });
+*/
+
     try {
         const query1 = Projects.find().sort({ date: -1 }).exec();
         const query2 = Collaborators.find().exec();

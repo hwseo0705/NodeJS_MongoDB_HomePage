@@ -6,8 +6,7 @@ const publication_add = (req, res) => {
         {
             title: 'Complementary Approach of Transfer Matrix Method and Deep Learning for the Design Optimization of Asymmetric Grating',
             author: 'Jehwan Hwang+, Ryuna Kang, Yunsang Kwak, Zahyun Ku*',
-            date: '2023',
-            status: 'prep'
+            date: '2023'
         }
     );
 
@@ -43,13 +42,13 @@ const publication_index = async (req, res) => {
         var ind = req.query.index;
         if (ind == undefined) ind = 1;
 
-        const request = req.query.status;
         var page = Number(req.query.page || 1); // 값이 없다면 기본값으로 1 사용
-        var perPage = 2;
-        const total = await Publications.countDocuments({ status: request }); // 총 게시글 수 세기
+        var perPage = 5;
+        const total = await Publications.countDocuments(); // 총 게시글 수 세기
         const totalPage = Math.ceil(total / perPage);
+        const request = 'publication';
 
-        await Publications.find({ status: request })
+        await Publications.find()
             .sort({ date: -1 })
             .skip(perPage * (page - 1)) // 아래 설명 보기
             .limit(perPage)
@@ -68,7 +67,7 @@ const patent_index = async (req, res) => {
     if (ind == undefined) ind = 1;
 
     var page = Number(req.query.page || 1);
-    var perPage = 2;
+    var perPage = 5;
     const total = await Patents.countDocuments({});
     const totalPage = Math.ceil(total / perPage);
     const request = 'patent';
@@ -92,11 +91,11 @@ const publication_write_get = (req, res) => {
 
 const publication_write_post = (req, res) => {
     const request = req.query.status;
-    if (request == 'prep' || request == 'published') {
+    if (request == 'publication') {
         const pub = new Publications(req.body)
         pub.save()
             .then((result) => {
-                res.redirect('/publication?status=' + request);
+                res.redirect('/publication');
             })
             .catch((err) => {
                 console.log(err);
@@ -115,7 +114,7 @@ const publication_write_post = (req, res) => {
 
 const publication_modify_get = (req, res) => {
     const request = req.query.status
-    if (request == 'prep' || request == 'published') {
+    if (request == 'publication') {
         Publications.findById(req.query.id)
             .then((result) => {
                 res.render('publication/publication-modify', { result, request });
@@ -138,10 +137,10 @@ const publication_modify_put = (req, res) => {
 
     const request = req.query.status
 
-    if (request == 'prep' || request == 'published') {
+    if (request == 'publication') {
         Publications.findByIdAndUpdate(req.query.id, req.body)
             .then((result) => {
-                res.redirect('/publication?status=' + request);
+                res.redirect('/publication');
             })
             .catch(err => {
                 console.log(err);
@@ -160,10 +159,10 @@ const publication_delete = (req, res) => {
 
     const request = req.query.status
 
-    if (request == 'prep' || request == 'published') {
+    if (request == 'publication') {
         Publications.deleteOne({ _id: req.query.id })
             .then((result) => {
-                res.redirect('/publication?status=' + request);
+                res.redirect('/publication');
             })
             .catch((err) => {
                 console.log(err);

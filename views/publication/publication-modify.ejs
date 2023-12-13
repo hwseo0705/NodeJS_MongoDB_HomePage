@@ -69,14 +69,11 @@
                 <input type="text" id="title" name="title" value="<%= result.title %>" placeholder="title" required>
                 <label for="author">Author</label>
                 <input type="text" id="author" name="author" value="<%= result.author %>" placeholder="author" required>
-                <% if (request == 'prep') { %>
-                    <label for="date">Date</label>
+                <% if (request == 'publication') { %>
+                    <label for="date">Date (YYYY)</label>
                     <input type="text" id="date" name="date" value="<%= result.date %>" pattern="^\d{4}$" name="date" placeholder="YYYY" required>
-                <% } else if (request == 'published') { %>
-                    <label for="date">Date</label>
-                    <input type="text" id="date" name="date" value="<%= result.date %>" pattern="^\d{4}$" name="date" placeholder="YYYY" required>
-                    <label for="publisher">Publisher</label>
-                    <input type="text" id="publisher" name="publisher" value="<%= result.publisher %>" placeholder="publisher">
+                    <label for="publisher">Publisher ('In-Prep')</label>
+                    <input type="text" id="publisher" name="publisher" value="<%= result.publisher %>" placeholder="in-prep, submitted, or publisher" required>
                 <% } else if (request == 'patent') { %>
                     <label for="issued">Issued</label>
                     <input type="text" id="issued" name="issued" value="<%= result.issued %>" placeholder="issued" required>

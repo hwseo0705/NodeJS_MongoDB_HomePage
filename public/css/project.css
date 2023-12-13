@@ -80,7 +80,7 @@
     padding-top: 15px;
 }
 
-.wrap .right .pagination {
+/* .wrap .right .pagination {
     display: flex;
     justify-content: space-between;
     width: 20%;
@@ -94,7 +94,7 @@
 
 .wrap .right .pagination li:hover {
     color: #bbb;
-}
+} */
 
 .wrap .right #collab {
     margin-top: 70px;

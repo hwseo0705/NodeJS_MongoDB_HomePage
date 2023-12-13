@@ -69,13 +69,13 @@
                 <input type="text" id="title" name="title" placeholder="title" required>
                 <label for="author">Author</label>
                 <input type="text" id="author" name="author" placeholder="author" required>
-                <% if (request == 'prep' || request == 'published') { %>
-                    <label for="date">Date</label>
+                <% if (request == 'publication') { %>
+                    <label for="date">Date (YYYY)</label>
                     <input type="text" id="date" pattern="^\d{4}$" name="date" placeholder="YYYY" required>
                     <label for="status" hidden>Issued</label>
                     <input type="text" id="status" name="status" value="<%= request %>" hidden>
                     <label for="publisher">Publisher</label>
-                    <input type="text" id="publisher" name="publisher" placeholder="publisher">
+                    <input type="text" id="publisher" name="publisher" placeholder="in-prep, submitted, or publisher" required>
                 <% } else if (request == 'patent') { %>
                     <label for="issued">Issued</label>
                     <input type="text" id="issued" name="issued" placeholder="issued-by (date)" required>

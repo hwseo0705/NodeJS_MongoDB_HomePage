@@ -22,7 +22,7 @@
             </div>
             <ul>
                 <!-- <li><a href="/publication?status=prep">In Preparation</a></li> -->
-                <li><a href="/publication?status=published">Journal Article</a></li>
+                <li><a href="/publication">Journal Article</a></li>
                 <li><a href="/patent">Patent</a></li>
             </ul>
         </div>
@@ -31,13 +31,11 @@
             <% if (isAdmin == 'admin') { %>
                 <button type="button" class="button"><a href="/publication/write?status=<%= request %>">추가</a></button>
             <% } %>
-            <section class="tabcontent">
+            <section class="content">
                 <table>
                     <tr class="top">
                         <th class="title">제목</th>
-                        <% if (request == 'prep') { %>
-                            <th class="date">시작일</th>
-                        <% } else if (request == 'published') { %>
+                        <% if (request == 'publication') { %>
                             <th class="date">등록일</th>
                         <% } else if (request == 'patent') { %>
                             <th class="date">비고</th>
@@ -49,7 +47,7 @@
                                 <td class="title">
                                     <p class="name"><%= n.title %></p>
                                     <p class="author"><%= n.author %></p>
-                                    <% if (request == 'published') { %>
+                                    <% if (request == 'publication') { %>
                                         <p class="publisher"><%= n.publisher %></p>
                                     <% } else if (request == 'patent') { %>
                                         <p class="issued"><%= n.issued %></p>
@@ -76,7 +74,7 @@
                                 <a href="/patent/?page=<%= i %>&index=<%= i %>"><%= i %></a>
                             </li>
                         <% } %>                    
-                    <% } else if (request == 'prep' || request == 'published') { %>
+                    <% } else if (request == 'publication') { %>
                         <% for (var i = 1; i <= totalPage; i++) { %>
                             <li class="<%= i == ind ? 'active click' : 'click' %>">
                                 <a href="/publication?status=<%= request %>&page=<%= i %>&index=<%= i %>"><%= i %></a>
