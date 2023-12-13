@@ -67,22 +67,25 @@
                     <% } %>
                 </table>
                 <ul class="pagination">
-                    <a href="#">&laquo;</a>
+                    <% if (startIndex > 1) { %>
+                        <a href="/<%= request %>?page=<%= startIndex - 1%>&prev=prev">&laquo;</a>
+                    <% } %>
                     <% if (request == 'patent') { %>
-                        <% for (var i = 1; i <= totalPage; i++) { %>
-                            <li class="<%= i == ind ? 'active click' : 'click' %>">
-                                <a href="/patent/?page=<%= i %>&index=<%= i %>"><%= i %></a>
+                        <% for (var i = startIndex; i <= endIndex; i++) { %>
+                            <li class="<%= i == page ? 'active click' : 'click' %>">
+                                <a href="/patent/?page=<%= i %>"><%= i %></a>
                             </li>
                         <% } %>                    
                     <% } else if (request == 'publication') { %>
-                        <% for (var i = 1; i <= totalPage; i++) { %>
-                            <li class="<%= i == ind ? 'active click' : 'click' %>">
-                                <a href="/publication?status=<%= request %>&page=<%= i %>&index=<%= i %>"><%= i %></a>
+                        <% for (var i = startIndex; i <= endIndex; i++) { %>
+                            <li class="<%= i == page ? 'active click' : 'click' %>">
+                                <a href="/publication?page=<%= i %>"><%= i %></a>
                             </li>
                         <% } %>
                     <% } %>
-
-                    <a href="#">&raquo;</a>
+                    <% if (endIndex < totalPage) { %>
+                        <a href="/<%= request %>?page=<%= endIndex + 1%>&next=next">&raquo;</a>
+                    <% } %>
                 </ul>
             </section>   
         </div>

@@ -39,21 +39,39 @@ const patent_add = (req, res) => {
 
 const publication_index = async (req, res) => {
     try {
-        var ind = req.query.index;
-        if (ind == undefined) ind = 1;
 
-        var page = Number(req.query.page || 1); // 값이 없다면 기본값으로 1 사용
+        const request = 'publication';
+
         var perPage = 5;
+        const perPaging = 5;
+
         const total = await Publications.countDocuments(); // 총 게시글 수 세기
         const totalPage = Math.ceil(total / perPage);
-        const request = 'publication';
+
+        var qp = req.query.page || 1;
+        if (qp < 1) qp = 1;
+        else if (qp > totalPage) qp = totalPage;
+
+
+        const page = Number(qp); // 값이 없다면 기본값으로 1 사용
+
+        where = Math.floor(page / perPaging);
+        if (page % perPaging == 0) where -= 1;
+
+
+        startIndex = where * perPaging + 1;
+        if (startIndex < 1) startIndex = 1;
+        endIndex = startIndex + perPaging - 1;
+        if (endIndex > totalPage) endIndex = totalPage;
+
+        console.log(startIndex, endIndex);
 
         await Publications.find()
             .sort({ date: -1 })
             .skip(perPage * (page - 1)) // 아래 설명 보기
             .limit(perPage)
             .then((result) => {
-                res.render('publication/publication', { result, request, totalPage, ind });
+                res.render('publication/publication', { result, request, page, startIndex, endIndex, totalPage });
             });
 
     } catch (error) {
@@ -63,25 +81,46 @@ const publication_index = async (req, res) => {
 
 const patent_index = async (req, res) => {
 
-    var ind = req.query.index;
-    if (ind == undefined) ind = 1;
+    try {
 
-    var page = Number(req.query.page || 1);
-    var perPage = 5;
-    const total = await Patents.countDocuments({});
-    const totalPage = Math.ceil(total / perPage);
-    const request = 'patent';
+        const request = 'patent';
 
-    await Patents.find()
-        .sort({ _id: -1 })
-        .skip(perPage * (page - 1)) // 아래 설명 보기
-        .limit(perPage)
-        .then((result) => {
-            res.render('publication/publication', { result, request, totalPage, ind });
-        })
-        .catch(err => {
-            console.log(err);
-        });
+        var perPage = 5;
+        const perPaging = 5;
+
+        const total = await Patents.countDocuments({});
+        const totalPage = Math.ceil(total / perPage);
+
+        var qp = req.query.page || 1;
+        if (qp < 1) qp = 1;
+        else if (qp > totalPage) qp = totalPage;
+
+
+        const page = Number(qp); // 값이 없다면 기본값으로 1 사용
+
+        where = Math.floor(page / perPaging);
+        if (page % perPaging == 0) where -= 1;
+
+
+        startIndex = where * perPaging + 1;
+        if (startIndex < 1) startIndex = 1;
+        endIndex = startIndex + perPaging - 1;
+        if (endIndex > totalPage) endIndex = totalPage;
+
+        console.log(startIndex, endIndex);
+
+
+        await Patents.find()
+            .sort({ _id: -1 })
+            .skip(perPage * (page - 1)) // 아래 설명 보기
+            .limit(perPage)
+            .then((result) => {
+                res.render('publication/publication', { result, request, page, startIndex, endIndex, totalPage });
+            });
+
+    } catch (error) {
+        console.error(error);
+    }
 };
 
 const publication_write_get = (req, res) => {
