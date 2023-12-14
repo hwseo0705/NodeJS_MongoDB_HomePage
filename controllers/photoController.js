@@ -3,7 +3,10 @@ const Photos = require('../models/photos');
 const photo_add = (req, res) => {
     const photos = new Photos(
         {
-            img: 'test2.png'
+            title: 'THIS IS A TITLE',
+            date:'2023.01.01',
+            main_img:'purdue.png',
+            description:'this is some description'
         }
     );
 

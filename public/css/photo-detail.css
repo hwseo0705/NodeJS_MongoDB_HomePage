@@ -20,7 +20,6 @@
 
 .wrap .right .title span {
     width: 8%;
-    text-align: center;
     margin: auto;
 }
 
@@ -31,24 +30,13 @@
     min-height: 200px;
 }
 
-.wrap .right .content .image {
-    width: 60%;
+.wrap .right .write {
+    width: 90%;
     margin: auto;
 }
 
-.wrap .right .content .image img {
-    width: 100%;
-}
-
-.wrap .right .content .write {
-    width: 95%;
-    margin: auto;
-    margin-top: 50px;
-    text-align: center;
-}
-
-.wrap .right .content .write .body {
-    width: 100%;
+.wrap .right .content img {
+    width: 40%;
 }
 
 .wrap .right .button {
@@ -61,4 +49,20 @@
     margin-top: 20px;
     padding: 10px;
     margin-left: 10px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
+.ql-align-center {
+    text-align: center;
+}
+
+.ql-align-right {
+    text-align: right;
 }

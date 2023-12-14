@@ -30,7 +30,7 @@
                 <% if (result.length > 0) { %>
                     <% result.forEach(n => { %>
                         <a class="box" href="/photo/detail?id=<%= n._id %>">
-                            <img src="/img/<%= n.img %>" alt="gallery_img">
+                            <img src="/img/<%= n.main_img %>" alt="gallery_img">
                         </a>
                     <% }) %>
                 <% } else { %>

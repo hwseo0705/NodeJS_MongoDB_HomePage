@@ -25,17 +25,12 @@
 
         <div class="right">
             <div class="title">
-                <h3>title</h3>
-                <span>2023.01.01</span>
+                <h3><%= result.title %></h3>
+                <span><%= result.date %></span>
             </div>
             <div class="content">
-                <% if (result.img) { %>
-                    <div class="image">
-                        <img src="/img/<%= result.img %>" alt="gallery_img">
-                    </div>
-                <% } %>
                 <div class="write">
-                    <p class="body">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</p>
+                    <p class="body"><%- result.description %></p>
                 </div>
             </div>
             <div class="button">

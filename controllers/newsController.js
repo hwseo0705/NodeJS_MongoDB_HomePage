@@ -45,8 +45,6 @@ const news_index = async (req, res) => {
         endIndex = startIndex + perPaging - 1;
         if (endIndex > totalPage) endIndex = totalPage;
 
-        console.log(startIndex, endIndex);
-
         await News.find()
             .sort({ date: -1 })
             .skip(perPage * (page - 1)) // 아래 설명 보기

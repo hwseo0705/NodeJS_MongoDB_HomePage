@@ -2,7 +2,7 @@
 
 ## Creating Homepage Using Node.js, Express, MongoDB
 
-#### > Project SetUp
+### Project SetUp
 
 1. Install Node.js
 
@@ -31,3 +31,11 @@
    - Controllers (Request-Response Handler) : Controller controls the requests of the user and then generates appropriate response which is fed to the viewer
    - Routes : Routing refers to how an application's endpoints (URIs) respond to client requests.
    - Public : Stores static files such as images, CSS files, and JS files.
+
+### Helpful Links
+- Node.js
+  - dfasf
+
+- Quill
+  - https://www.youtube.com/watch?v=CeRiFjYlPIw
+  - https://www.youtube.com/watch?v=FGeYOqF4vIg
