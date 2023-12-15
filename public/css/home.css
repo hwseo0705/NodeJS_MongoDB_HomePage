@@ -14,7 +14,6 @@ a {
 
 .main {
     width: 100%;
-    padding-top: 60px;
     position: relative;
 }
 
@@ -25,7 +24,7 @@ a {
 
 .main .button {
     position: absolute;
-    top: 70px;
+    top: 20px;
     right: 15px;
     z-index: 999;
 }
@@ -35,7 +34,7 @@ a {
     color: #fff;
     line-height: 1.3;
     position: absolute;
-    top: 70%;
+    top:57%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, 0.3);
@@ -54,6 +53,21 @@ a {
 .main .intro .korean {
     font-size: 14px;
 }
+
+@media only screen and (max-width: 400px) {
+    .main .intro .welcome {
+        font-size: 20px;
+    }
+    .main .intro .goal {
+        font-size: 9px;
+    }    
+    .main .intro .korean {
+        font-size: 9px;
+    }    
+    .main .intro .english {
+        font-size: 9px;
+    }    
+  }
 
 /* news */
 

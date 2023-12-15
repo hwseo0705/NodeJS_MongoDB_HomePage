@@ -1,8 +1,9 @@
 /* header style */
 header {
-    width: 100%;
+    /* width: 100%; */
+    min-width: 1000px; /* Adjust the minimum width */
     top: 0px;
-    position: fixed;
+    position: sticky;
     z-index: 1000;
     background: #fff;
     font-family: Arial, sans-serif;
@@ -43,3 +44,8 @@ header nav .nav-list li {
 header .nav-list li:hover {
     color: #bbb;
 }
+
+html {
+    min-width: 1000px; /* Adjust the minimum width */
+    margin: 0 auto; /* Center the container */
+  }

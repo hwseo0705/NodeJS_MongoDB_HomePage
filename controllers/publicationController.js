@@ -64,7 +64,6 @@ const publication_index = async (req, res) => {
         endIndex = startIndex + perPaging - 1;
         if (endIndex > totalPage) endIndex = totalPage;
 
-        console.log(startIndex, endIndex);
 
         await Publications.find()
             .sort({ date: -1 })
@@ -106,9 +105,6 @@ const patent_index = async (req, res) => {
         if (startIndex < 1) startIndex = 1;
         endIndex = startIndex + perPaging - 1;
         if (endIndex > totalPage) endIndex = totalPage;
-
-        console.log(startIndex, endIndex);
-
 
         await Patents.find()
             .sort({ _id: -1 })
