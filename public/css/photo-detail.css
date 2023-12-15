@@ -4,6 +4,7 @@
 
 
 .wrap .right .title {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 10px;
@@ -13,14 +14,13 @@
 }
 
 .wrap .right .title h3 {
-    width: 90%;
+    width: 86%;
     margin-right: 2%;
     line-height: 1.2;
 }
 
 .wrap .right .title span {
-    width: 8%;
-    margin: auto;
+    width: 12%;
 }
 
 .wrap .right .content {
